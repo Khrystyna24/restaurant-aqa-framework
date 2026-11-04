@@ -1,0 +1,8 @@
+#!/bin/sh
+# Build with analyzers (warnings are errors) before anything AQA-related leaves the machine.
+upstream=$(git rev-parse --abbrev-ref --symbolic-full-name '@{u}' 2>/dev/null)
+if [ -n "$upstream" ] && ! git diff --name-only "$upstream..HEAD" | grep -q '^aqa/restaurant-aqa-framework/'; then
+  exit 0
+fi
+cd "$(git rev-parse --show-toplevel)/aqa/restaurant-aqa-framework" || exit 0
+dotnet husky run --group pre-push

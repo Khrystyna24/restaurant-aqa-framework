@@ -1,0 +1,23 @@
+{
+  "$schema": "https://schemas.reqnroll.net/reqnroll-config-latest.json",
+  "language": {
+    "feature": "en"
+  },
+  "bindingCulture": {
+    "name": "en-US"
+  },
+  "runtime": {
+    "missingOrPendingStepsOutcome": "Ignore"
+  },
+  "generator": {
+    "addNonParallelizableMarkerForTags": [ "sequential" ]
+  },
+  "formatters": {
+    "html": {
+      "outputFilePath": "../../../TestResults/reqnroll/reqnroll_report.html"
+    },
+    "messages": {
+      "outputFilePath": "../../../TestResults/reqnroll/reqnroll_report.ndjson"
+    }
+  }
+}

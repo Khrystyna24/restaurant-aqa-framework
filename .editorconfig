@@ -1,0 +1,11 @@
+root = true
+
+[*.cs]
+charset = utf-8
+indent_style = space
+indent_size = 4
+insert_final_newline = true
+
+# The project's root namespace (Restaurant_Aqa_Framework) is fixed by the repo's naming; renaming
+# it would touch every file for no behavioral gain.
+dotnet_diagnostic.CA1707.severity = none

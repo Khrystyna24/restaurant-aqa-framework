@@ -1,0 +1,63 @@
+{
+  "$schema": "https://alirezanet.github.io/Husky.Net/schema.json",
+  "tasks": [
+    {
+      "name": "format-cs",
+      "group": "pre-commit",
+      "command": "dotnet",
+      "args": [
+        "format",
+        "restaurant-aqa-framework.csproj",
+        "--verify-no-changes",
+        "--no-restore"
+      ],
+      "include": [
+        "**/*.cs"
+      ],
+      "cwd": ".",
+      "pathMode": "absolute"
+    },
+    {
+      "name": "gherkin-lint",
+      "group": "pre-commit",
+      "command": "npx",
+      "args": [
+        "--yes",
+        "gherkin-lint",
+        "-c",
+        ".gherkin-lintrc",
+        "${staged}"
+      ],
+      "windows": {
+        "command": "cmd",
+        "args": [
+          "/c",
+          "npx",
+          "--yes",
+          "gherkin-lint",
+          "-c",
+          ".gherkin-lintrc",
+          "${staged}"
+        ]
+      },
+      "include": [
+        "**/*.feature"
+      ],
+      "cwd": ".",
+      "pathMode": "absolute"
+    },
+    {
+      "name": "build",
+      "group": "pre-push",
+      "command": "dotnet",
+      "args": [
+        "build",
+        "restaurant-aqa-framework.csproj",
+        "--nologo",
+        "-v",
+        "q"
+      ],
+      "cwd": "."
+    }
+  ]
+}
